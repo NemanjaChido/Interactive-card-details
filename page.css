@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --Linear-gradient-active-input-border: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+    --Red-input-errors: hsl(0, 100%, 66%);
+    --White: hsl(0, 0%, 100%);
+    --Light-grayish-violet: hsl(270, 3%, 87%);
+    --Dark-grayish-violet: hsl(279, 6%, 55%);
+    --Very-dark-violet: hsl(278, 68%, 11%);
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Space Grotesk', sans-serif;
+    Font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.colored-background{
+    background-image: url(images/bg-main-desktop.png);
+    background-size: cover;
+    height: 100%;
+    width: 30%;
+}
+.content-page{
+    height: 100%;
+    width: 70%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    height: 60%;
+    width: 40%;
+    padding: 2%;
+    position: absolute;
+}
+.input-Box-name,
+.input-Box-number{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.input-Box-name label,
+.input-Box-number label{
+    font-size: 0.6rem;
+    margin-bottom: 1%;
+    font-weight: bold;
+}
+.input-Box-name input,
+.input-Box-number input{
+    font-size: 0.7rem;
+    padding: 4%;
+    outline: none;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 2%;
+    color: var(--Very-dark-violet);
+    border: 1px solid var(--Light-grayish-violet);
+}
+
+
+.card-exp-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 5%;
+}
+.card-exp-details .input-bar-for-date{
+    width: 48%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    position: relative;
+}
+.input-bar-for-date .label{
+    font-size: 0.6em;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    height: 20%;
+    width: 100%;
+}
+
+.input-bar-for-date .input-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 65%;
+    width: 100%;
+}
+
+#month-error{
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+#year-error{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+}
+#cvc-error{
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+.input-bar-for-date .input-section .month-input-space,
+.input-bar-for-date .input-section .year-input-space{
+    height: 100%;
+    width: 49%;
+}
+
+.input-bar-for-date .input-section .month-input-space .input-space-for-month,
+.input-bar-for-date .input-section .year-input-space .input-space-for-year{
+    outline: none;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--Very-dark-violet);
+    border: 1px solid var(--Light-grayish-violet);
+    height: 100%;
+    width: 100%;
+    padding: 5%;
+}
+
+.input-Box{
+    margin-bottom: 5%;
+}
+
+.input-Box input:focus{
+    outline: 0;
+}
+
+.input-Box .error{
+    color: var(--Red-input-errors);
+    font-size: 0.5rem;
+    width: 100%;
+    height: 10%;
+    display: inline-block;
+    visibility: hidden;
+}
+
+.input-Box.success input{
+    border-color: var(--Very-dark-violet);
+}
+
+
+.input-Box.failed input{
+    border-color: var(--Red-input-errors);
+}
+
+.input-Box.failed .error{
+    visibility: visible;
+}
+
+
+.card-exp-details .cvc-details{
+    width: 48%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.card-exp-details .cvc-details .cvc-label{
+    font-size: 0.6em;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    height: 20%;
+    width: 100%;
+}
+
+.card-exp-details .cvc-details input{
+    width: 100%;
+    height: 65%;
+    padding: 5%;
+    border-radius: 8px;
+    outline: none;
+    color: var(--Very-dark-violet);
+    border: 1px solid var(--Light-grayish-violet);
+}
+.btns button{
+    padding: 5%;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    color: var(--White);
+    background-color: var(--Very-dark-violet);
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.front-card{
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    height: 200px;
+    width: 350px;
+    border-radius: 8px;
+    background-image: url(images/bg-card-front.png);
+    background-size: cover;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1;
+}
+.front-card .front-card-wrapper{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.front-card .front-card-wrapper .circle{
+    width: 30%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.front-card .front-card-wrapper .circle .bigger-circle{
+    background: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.front-card .front-card-wrapper .circle .smaller-circle{
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
+.front-card .front-card-wrapper .front-card-details{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.front-card .front-card-wrapper .front-card-details .card-number{
+    height: 50%;
+    width: 100%;
+    background-color: transparent;
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-end;
+    font-size: 1em;
+    letter-spacing: 4px;
+    color: #fff;
+}
+.front-card .front-card-wrapper .front-card-details .cardholder-name{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.front-card .front-card-wrapper .front-card-details .cardholder-name .cardholder{
+    height: 100%;
+    width: 60%;
+    color: var(--White);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center; 
+}
+.front-card .front-card-wrapper .front-card-details .cardholder-name .card-date{
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--Light-grayish-violet);
+}
+
+.back-card{
+    position: absolute;
+    top: 55%;
+    left: 15%;
+    height: 200px;
+    width: 350px;
+    border-radius: 8px;
+    background-image: url(images/bg-card-back.png);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+    z-index: 1;
+}
+
+.back-card .cvc-code{
+    width: 35px;
+    height: 15px;
+    position: relative;
+    top: 45%;
+    left: 80%;
+    letter-spacing: 1px;
+    text-align: center;
+    color: var(--Light-grayish-violet);
+}
+
+.notification-bar{
+    height: 60%;
+    width: 40%;
+    padding: 2%;
+    position: absolute;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 8%;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1;
+    display: none;
+}
+.notification-bar.display{
+    display: flex;
+}
+
+.notification-bar h2{
+    color: var(--Very-dark-violet);
+    font-weight: 500;
+}
+.notification-bar p{
+    color: var(--Dark-grayish-violet);
+}
+
+.notification-bar button{
+    height: 40px;
+    width: 100%;
+    padding: 5%;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    color: var(--White);
+    background-color: var(--Very-dark-violet);
+    border-radius: 8px
+}
+
+
+@media only screen and (max-width: 769px){
+    body{
+        flex-direction: column;
+    }
+    .colored-background{
+        width: 100%;
+        height: 30%;
+    }
+    .content-page{
+        width: 100%;
+        height: 70%;
+    }
+
+    form{
+        width: 80%;
+        height: 80%;
+        top: 23%;
+    }
+    .input-Box{
+        margin-bottom: 2%;
+    }
+    .input-Box-name label,
+    .input-Box-number label{
+       font-size: 0.5rem;
+       margin-bottom: 0%;
+    }
+    .input-Box-name input,
+    .input-Box-number input{
+        padding: 2%;
+        margin-bottom: 0;
+    }
+    .card-exp-details{
+        margin-bottom: 1%;
+        height: 60px;
+    }
+    #month-error,
+    #cvc-error,
+    #year-error{
+        top: 85%;
+    }
+    .input-bar-for-date .input-section .month-input-space .input-space-for-month,
+    .input-bar-for-date .input-section .year-input-space .input-space-for-year{
+        padding: 2%;
+    }
+    .input-bar-for-date .label{
+        font-size: 0.5rem;
+    }
+    .card-exp-details .cvc-details .cvc-label{
+        font-size: 0.5rem;
+    }
+    .card-exp-details .cvc-details input{
+        padding: 2%;
+    }
+    .btns button{
+        padding: 2%;
+    }
+    .notification-bar{
+        width: 100%;
+        height: 100%;
+    }
+
+    .front-card{
+        top: 18%;
+        height: 130px;
+        width: 250px;
+
+        z-index: 2;
+    }
+    .front-card .front-card-wrapper .front-card-details .cardholder-name .cardholder{
+        font-size: 0.6rem;
+    }
+
+    .front-card .front-card-wrapper .front-card-details .cardholder-name .card-date{
+        font-size: 0.6rem;
+    }
+
+    .back-card{
+        top: 2%;
+        left: 40%;
+        height: 130px;
+        width: 250px;
+    }
+
+
+    .front-card .front-card-wrapper .front-card-details .card-number{
+        font-size: 0.8rem;
+    }
+    .front-card .front-card-wrapper .circle .bigger-circle{
+        width: 40px;
+        height: 40px;
+    }
+
+    .back-card .cvc-code{
+        left: 70%;
+        top: 43%;
+        font-size: 1rem;
+    }
+    .notification-bar{
+        padding: 5%;
+        top: 20%;
+    }
+    .notification-bar img{
+        height: 30px;
+    }
+    .notification-bar h2{
+        font-size: 1rem;
+    }
+    .notification-bar p{
+        font-size: 0.8rem;
+    }
+
+    .notification-bar button{
+        padding: 2%;
+    }
+} 
+
+@media only screen and (max-width: 425px){
+    form{
+        top: 25%;
+    }
+
+    .input-Box-name,
+    .input-Box-number{
+        margin-bottom: 5%;
+    }
+    .input-Box-name input,
+    .input-Box-number input{
+        padding: 4%;
+    }
+    .btns button{
+        padding: 3%;
+    }
+    .front-card{
+        left: 5%;
+    }
+    .back-card{
+        left: 20%;
+    }
+    .front-card .front-card-wrapper .front-card-details .card-number{
+        font-size: 0.5rem;
+    }
+}

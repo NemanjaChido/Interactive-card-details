@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive form</title>
+    <link rel="stylesheet" href="page.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="colored-background"></section>
+    <section class="content-page">
+      <form id="credit-card-form" action="">
+        <div class="input-Box input-Box-name">
+          <label for="name">CARDHOLDER NAME</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="e.g. Jane Appleseed"
+          />
+          <p class="error"></p>
+        </div>
+        <div class="input-Box input-Box-number">
+          <label for="number">CARD NUMBER</label>
+          <input
+            type="text"
+            id="number"
+            name="number"
+            maxlength="16"
+            placeholder="e.g. 1234 5678 9123 0000"
+          />
+          <p class="error"></p>
+        </div>
+        <div class="card-exp-details">
+          <div class="input-bar-for-date">
+            <p class="label">
+              EXP.
+              <label for="month">DATE</label>
+              <label for="year">(MM/YY)</label>
+            </p>
+            <div class="input-section">
+              <div class="input-Box month-input-space">
+                <input
+                  name="month"
+                  id="input-space"
+                  class="input-space-for-month"
+                  placeholder="MM"
+                  maxlength="2"
+                />
+                <p id="month-error" class="error"></p>
+              </div>
+              <div class="input-Box year-input-space">
+                <input
+                  name="year"
+                  id="input-space-2"
+                  class="input-space-for-year"
+                  placeholder="YY"
+                  maxlength="2"
+                />
+                <p id="year-error" class="error"></p>
+              </div>
+            </div>
+          </div>
+          <div class="input-Box cvc-details">
+            <label class="cvc-label" for="cvc">CVC</label>
+            <input
+              type="text"
+              name="cvc"
+              id="cvc"
+              placeholder="e.g. 123"
+              maxlength="3"
+            />
+            <p id="cvc-error" class="error"></p>
+          </div>
+        </div>
+        <div class="btns">
+          <button class="submit" type="submit" value="submit">Confirm</button>
+        </div>
+      </form>
+      <div class="notification-bar">
+        <img src="images/icon-complete.svg" alt="" />
+        <h2>THANK YOU!</h2>
+        <p>We've added your card details</p>
+        <button class="continue-btn">Continue</button>
+      </div>
+    </section>
+    <aside class="front-card">
+      <div class="front-card-wrapper">
+        <div class="circle">
+          <span class="bigger-circle"> </span>
+          <span class="smaller-circle"></span>
+        </div>
+        <div class="front-card-details">
+          <div class="card-number">0000 0000 0000 0000</div>
+          <div class="cardholder-name">
+            <div class="cardholder">Jane Appleseed</div>
+            <div class="card-date">
+              <span class="displayed-month">00</span>/
+              <span class="displayed-year">00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <aside class="back-card">
+      <div class="cvc-code">000</div>
+    </aside>
+    <script src="page.js"></script>
+  </body>
+</html>
